@@ -28,15 +28,71 @@
 // %Tag(FULLTEXT)%
 #include "ros/ros.h"
 #include "std_msgs/String.h"
+#include <visualization_msgs/Marker.h>
+#include "iarc7_msgs/OrientationThrottleStamped.h"
 
 /**
  * This tutorial demonstrates simple receipt of messages over the ROS system.
  */
 // %Tag(CALLBACK)%
-void sendToRviz(const iarc7_msgs::OrientationThrottleStamped::ConstPtr& msg)
+class SubscribeAndPublish
 {
-  ROS_INFO("Pitch is %lf",msg->data->pitch);
-}
+public:
+  SubscribeAndPublish()
+  {
+    //Topic you want to publish
+    ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);
+
+    //Topic you want to subscribe
+    ros::Subscriber sub = n.subscribe("uav_direction_command", 1000, &SubscribeAndPublish::sendToRviz, this);
+  }
+
+
+  void sendToRviz(const iarc7_msgs::OrientationThrottleStamped::ConstPtr& msg)
+  {
+    ROS_INFO("Pitch is %lf",msg->data.pitch);
+    visualization_msgs::Marker marker;
+    uint32_t shape = visualization_msgs::Marker::CUBE;
+    marker.header.frame_id = "/my_frame";
+    marker.header.stamp = ros::Time::now();
+    marker.ns = "basic_shapes";
+    marker.id = 0;
+    marker.type = shape;
+    marker.pose.position.x = 0;
+    marker.pose.position.y = 0;
+    marker.pose.position.z = 0;
+    double t0 = std::cos(msg->data.yaw * 0.5f);
+    double t1 = std::sin(msg->data.yaw * 0.5f);
+    double t2 = std::cos(msg->data.roll * 0.5f);
+    double t3 = std::sin(msg->data.roll * 0.5f);
+    double t4 = std::cos(msg->data.pitch * 0.5f);
+    double t5 = std::sin(msg->data.pitch * 0.5f);
+    marker.pose.orientation.w = t0 * t2 * t4 + t1 * t3 * t5;
+    marker.pose.orientation.x = t0 * t3 * t4 - t1 * t2 * t5;
+    marker.pose.orientation.y = t0 * t2 * t5 + t1 * t3 * t4;
+    marker.pose.orientation.z = t1 * t2 * t4 - t0 * t3 * t5;
+    marker.scale.x = 1.0;
+    marker.scale.y = 1.0;
+    marker.scale.z = 1.0;
+    marker.color.r = 0.0f;
+    marker.color.g = 1.0f;
+    marker.color.b = 0.0f;
+    marker.color.a = 1.0;
+    marker.lifetime = ros::Duration();
+
+    marker_pub.publish(marker);
+
+
+  }
+
+private:
+  ros::NodeHandle n; 
+  ros::Publisher marker_pub;
+  ros::Subscriber sub;
+  uint32_t shape = visualization_msgs::Marker::CUBE;
+
+};//End of class SubscribeAndPublish
+
 // %EndTag(CALLBACK)%
 
 int main(int argc, char **argv)
@@ -44,40 +100,9 @@ int main(int argc, char **argv)
   /**
    * The ros::init() function needs to see argc and argv so that it can perform
    * any ROS arguments and name remapping that were provided at the command line.
-   * For programmatic remappings you can use a different version of init() which takes
-   * remappings directly, but for most command-line programs, passing argc and argv is
-   * the easiest way to do it.  The third argument to init() is the name of the node.
-   *
-   * You must call one of the versions of ros::init() before using any other
-   * part of the ROS system.
    */
   ros::init(argc, argv, "Rviz_RPY");
 
-  /**
-   * NodeHandle is the main access point to communications with the ROS system.
-   * The first NodeHandle constructed will fully initialize this node, and the last
-   * NodeHandle destructed will close down the node.
-   */
-  ros::NodeHandle n;
-
-  /**
-   * The subscribe() call is how you tell ROS that you want to receive messages
-   * on a given topic.  This invokes a call to the ROS
-   * master node, which keeps a registry of who is publishing and who
-   * is subscribing.  Messages are passed to a callback function, here
-   * called chatterCallback.  subscribe() returns a Subscriber object that you
-   * must hold on to until you want to unsubscribe.  When all copies of the Subscriber
-   * object go out of scope, this callback will automatically be unsubscribed from
-   * this topic.
-   *
-   * The second parameter to the subscribe() function is the size of the message
-   * queue.  If messages are arriving faster than they are being processed, this
-   * is the number of messages that will be buffered up before beginning to throw
-   * away the oldest ones.
-   */
-// %Tag(SUBSCRIBER)%
-  ros::Subscriber sub = n.subscribe("uav_direction_command", 1000, sendToRviz);
-// %EndTag(SUBSCRIBER)%
 
   /**
    * ros::spin() will enter a loop, pumping callbacks.  With this version, all
