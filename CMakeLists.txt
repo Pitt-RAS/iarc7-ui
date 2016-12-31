@@ -6,7 +6,6 @@ project(iarc7_ui)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   iarc7_msgs
-  rviz
   roscpp
   message_generation
   serial
