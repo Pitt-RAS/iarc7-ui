@@ -6,11 +6,9 @@ project(iarc7_ui)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   iarc7_msgs
+  rviz
   roscpp
   message_generation
-  serial
-  tf2
-  tf2_ros
 )
 
 ## System dependencies are found with CMake's conventions
