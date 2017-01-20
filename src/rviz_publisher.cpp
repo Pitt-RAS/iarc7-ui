@@ -29,6 +29,7 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include <visualization_msgs/Marker.h>
+#include "tf2_geometry_msgs/tf2_geometry_msgs.h"
 #include "iarc7_msgs/OrientationThrottleStamped.h"
 
 /**
@@ -41,10 +42,10 @@ public:
   SubscribeAndPublish()
   {
     //Topic you want to publish
-    ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);
+    ros::Publisher marker_pub = DispRPY.advertise<visualization_msgs::Marker>("visualization_marker", 1);
 
     //Topic you want to subscribe
-    ros::Subscriber sub = n.subscribe("uav_direction_command", 1000, &SubscribeAndPublish::sendToRviz, this);
+    ros::Subscriber sub = DispRPY.subscribe("uav_direction_command", 1000, &SubscribeAndPublish::sendToRviz, this);
   }
 
 
@@ -52,6 +53,9 @@ public:
   {
     ROS_INFO("Pitch is %lf",msg->data.pitch);
     visualization_msgs::Marker marker;
+
+    //If you want to understand this section of the code, this is a gooe place to start
+    //http://wiki.ros.org/rviz/Tutorials/Markers%3A%20Basic%20Shapes
     uint32_t shape = visualization_msgs::Marker::CUBE;
     marker.header.frame_id = "/my_frame";
     marker.header.stamp = ros::Time::now();
@@ -61,6 +65,8 @@ public:
     marker.pose.position.x = 0;
     marker.pose.position.y = 0;
     marker.pose.position.z = 0;
+    tf2::Quaternion Quadorientation;
+    Quadorientation.setRPY(msg.data->roll, msg.data->pitch, msg.data->yaw);
     double t0 = std::cos(msg->data.yaw * 0.5f);
     double t1 = std::sin(msg->data.yaw * 0.5f);
     double t2 = std::cos(msg->data.roll * 0.5f);
@@ -86,7 +92,7 @@ public:
   }
 
 private:
-  ros::NodeHandle n; 
+  ros::NodeHandle DispRPY; 
   ros::Publisher marker_pub;
   ros::Subscriber sub;
   uint32_t shape = visualization_msgs::Marker::CUBE;
@@ -103,6 +109,7 @@ int main(int argc, char **argv)
    */
   ros::init(argc, argv, "Rviz_RPY");
 
+  SubscribeAndPublish SAPObject;
 
   /**
    * ros::spin() will enter a loop, pumping callbacks.  With this version, all
