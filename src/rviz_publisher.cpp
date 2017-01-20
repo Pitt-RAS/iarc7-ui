@@ -29,7 +29,6 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include <visualization_msgs/Marker.h>
-#include "tf2_geometry_msgs/tf2_geometry_msgs.h"
 #include "iarc7_msgs/OrientationThrottleStamped.h"
 
 /**
@@ -65,8 +64,6 @@ public:
     marker.pose.position.x = 0;
     marker.pose.position.y = 0;
     marker.pose.position.z = 0;
-    tf2::Quaternion Quadorientation;
-    Quadorientation.setRPY(msg.data->roll, msg.data->pitch, msg.data->yaw);
     double t0 = std::cos(msg->data.yaw * 0.5f);
     double t1 = std::sin(msg->data.yaw * 0.5f);
     double t2 = std::cos(msg->data.roll * 0.5f);
