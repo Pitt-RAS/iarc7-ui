@@ -28,6 +28,8 @@
 // %Tag(FULLTEXT)%
 #include "ros/ros.h"
 #include "std_msgs/String.h"
+#include <tf2/LinearMath/Quaternion.h>
+#include "tf2_geometry_msgs/tf2_geometry_msgs.h"
 #include <visualization_msgs/Marker.h>
 #include "iarc7_msgs/OrientationThrottleStamped.h"
 
@@ -64,16 +66,10 @@ public:
     marker.pose.position.x = 0;
     marker.pose.position.y = 0;
     marker.pose.position.z = 0;
-    double t0 = std::cos(msg->data.yaw * 0.5f);
-    double t1 = std::sin(msg->data.yaw * 0.5f);
-    double t2 = std::cos(msg->data.roll * 0.5f);
-    double t3 = std::sin(msg->data.roll * 0.5f);
-    double t4 = std::cos(msg->data.pitch * 0.5f);
-    double t5 = std::sin(msg->data.pitch * 0.5f);
-    marker.pose.orientation.w = t0 * t2 * t4 + t1 * t3 * t5;
-    marker.pose.orientation.x = t0 * t3 * t4 - t1 * t2 * t5;
-    marker.pose.orientation.y = t0 * t2 * t5 + t1 * t3 * t4;
-    marker.pose.orientation.z = t1 * t2 * t4 - t0 * t3 * t5;
+    tf2::Quaternion Quadorientation(msg->data.roll, msg->data.pitch, msg->data.yaw);
+    geometry_msgs::Quaternion conversion;
+    tf2::convert(Quadorientation, conversion);
+    marker.pose.orientation = conversion;
     marker.scale.x = 1.0;
     marker.scale.y = 1.0;
     marker.scale.z = 1.0;

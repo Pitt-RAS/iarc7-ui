@@ -7,6 +7,9 @@ project(iarc7_ui)
 find_package(catkin REQUIRED COMPONENTS
   iarc7_msgs
   rviz
+  tf2
+  tf2_ros
+  tf2_geometry_msgs
   roscpp
   message_generation
 )
