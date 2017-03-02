@@ -43,10 +43,10 @@ public:
   SubscribeAndPublish()
   {
     //Topic you want to publish
-    ros::Publisher marker_pub = DispRPY.advertise<visualization_msgs::Marker>("visualization_marker", 1);
+    marker_pub = DispRPY.advertise<visualization_msgs::Marker>("visualization_marker", 1);
 
     //Topic you want to subscribe
-    ros::Subscriber sub = DispRPY.subscribe("uav_direction_command", 1000, &SubscribeAndPublish::sendToRviz, this);
+    sub = DispRPY.subscribe("uav_direction_command", 1000, &SubscribeAndPublish::sendToRviz, this);
   }
 
 
@@ -58,7 +58,7 @@ public:
     //If you want to understand this section of the code, this is a gooe place to start
     //http://wiki.ros.org/rviz/Tutorials/Markers%3A%20Basic%20Shapes
     uint32_t shape = visualization_msgs::Marker::CUBE;
-    marker.header.frame_id = "/my_frame";
+    marker.header.frame_id = "/map";
     marker.header.stamp = ros::Time::now();
     marker.ns = "basic_shapes";
     marker.id = 0;
