@@ -66,9 +66,11 @@ public:
     marker.pose.position.x = 0;
     marker.pose.position.y = 0;
     marker.pose.position.z = 0;
-    tf2::Quaternion Quadorientation(msg->data.roll, msg->data.pitch, msg->data.yaw);
+    tf2::Quaternion quad_orientation;
+    quad_orientation.setEuler(msg->data.roll, msg->data.pitch, msg->data.yaw);
+
     geometry_msgs::Quaternion conversion;
-    tf2::convert(Quadorientation, conversion);
+    tf2::convert(quad_orientation, conversion);
     marker.pose.orientation = conversion;
     marker.scale.x = 1.0;
     marker.scale.y = 1.0;
