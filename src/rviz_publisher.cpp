@@ -43,10 +43,10 @@ public:
   SubscribeAndPublish()
   {
     //Topic you want to publish
-    ros::Publisher marker_pub = DispRPY.advertise<visualization_msgs::Marker>("visualization_marker", 1);
+    marker_pub = DispRPY.advertise<visualization_msgs::Marker>("visualization_marker", 1);
 
     //Topic you want to subscribe
-    ros::Subscriber sub = DispRPY.subscribe("uav_direction_command", 1000, &SubscribeAndPublish::sendToRviz, this);
+    sub = DispRPY.subscribe("uav_direction_command", 1000, &SubscribeAndPublish::sendToRviz, this);
   }
 
 
@@ -58,7 +58,7 @@ public:
     //If you want to understand this section of the code, this is a gooe place to start
     //http://wiki.ros.org/rviz/Tutorials/Markers%3A%20Basic%20Shapes
     uint32_t shape = visualization_msgs::Marker::CUBE;
-    marker.header.frame_id = "/my_frame";
+    marker.header.frame_id = "/map";
     marker.header.stamp = ros::Time::now();
     marker.ns = "basic_shapes";
     marker.id = 0;
@@ -66,9 +66,11 @@ public:
     marker.pose.position.x = 0;
     marker.pose.position.y = 0;
     marker.pose.position.z = 0;
-    tf2::Quaternion Quadorientation(msg->data.roll, msg->data.pitch, msg->data.yaw);
+    tf2::Quaternion quad_orientation;
+    quad_orientation.setEuler(msg->data.roll, msg->data.pitch, msg->data.yaw);
+
     geometry_msgs::Quaternion conversion;
-    tf2::convert(Quadorientation, conversion);
+    tf2::convert(quad_orientation, conversion);
     marker.pose.orientation = conversion;
     marker.scale.x = 1.0;
     marker.scale.y = 1.0;
