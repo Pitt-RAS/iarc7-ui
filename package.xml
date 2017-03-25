@@ -40,11 +40,13 @@
   <!--   <test_depend>gtest</test_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>iarc7_msgs</build_depend>
+  <build_depend>nav_msgs</build_depend>
   <build_depend>roscpp</build_depend>
   <build_depend>tf2</build_depend>
   <build_depend>tf2_ros</build_depend>
   <build_depend>tf2_geometry_msgs</build_depend>
   <run_depend>iarc7_msgs</run_depend>
+  <run_depend>nav_msgs</run_depend>
   <run_depend>roscpp</run_depend>
   <run_depend>tf2</run_depend>
   <run_depend>tf2_ros</run_depend>
