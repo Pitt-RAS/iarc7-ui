@@ -1,0 +1,181 @@
+{
+  "keys": {}, 
+  "groups": {
+    "pluginmanager": {
+      "keys": {
+        "running-plugins": {
+          "type": "repr", 
+          "repr": "{u'rqt_plot/Plot': [3, 2, 1]}"
+        }
+      }, 
+      "groups": {
+        "plugin__rqt_plot__Plot__1": {
+          "keys": {}, 
+          "groups": {
+            "dock_widget__DataPlotWidget": {
+              "keys": {
+                "dockable": {
+                  "type": "repr", 
+                  "repr": "True"
+                }, 
+                "parent": {
+                  "type": "repr", 
+                  "repr": "None"
+                }, 
+                "dock_widget_title": {
+                  "type": "repr", 
+                  "repr": "u'PyQtGraph'"
+                }
+              }, 
+              "groups": {}
+            }, 
+            "plugin": {
+              "keys": {
+                "autoscroll": {
+                  "type": "repr", 
+                  "repr": "True"
+                }, 
+                "plot_type": {
+                  "type": "repr", 
+                  "repr": "0"
+                }, 
+                "topics": {
+                  "type": "repr", 
+                  "repr": "[u'/camera_localized_pose/pose/pose/position/x', u'/odometry/filtered/pose/pose/position/x', u'/odometry/filtered/twist/twist/linear/x', u'/camera_localized_pose/pose/covariance[0]']"
+                }, 
+                "y_limits": {
+                  "type": "repr", 
+                  "repr": "[-4.011707347541614, 3.5541393497001073]"
+                }, 
+                "x_limits": {
+                  "type": "repr", 
+                  "repr": "[184.94704580307007, 197.31282830238342]"
+                }
+              }, 
+              "groups": {}
+            }
+          }
+        }, 
+        "plugin__rqt_plot__Plot__2": {
+          "keys": {}, 
+          "groups": {
+            "dock_widget__DataPlotWidget": {
+              "keys": {
+                "dockable": {
+                  "type": "repr", 
+                  "repr": "True"
+                }, 
+                "parent": {
+                  "type": "repr", 
+                  "repr": "None"
+                }, 
+                "dock_widget_title": {
+                  "type": "repr", 
+                  "repr": "u'PyQtGraph (2)'"
+                }
+              }, 
+              "groups": {}
+            }, 
+            "plugin": {
+              "keys": {
+                "autoscroll": {
+                  "type": "repr", 
+                  "repr": "True"
+                }, 
+                "plot_type": {
+                  "type": "repr", 
+                  "repr": "0"
+                }, 
+                "topics": {
+                  "type": "repr", 
+                  "repr": "[u'/camera_localized_pose/pose/pose/position/y', u'/odometry/filtered/pose/pose/position/y', u'/camera_localized_pose/pose/covariance[7]', u'/odometry/filtered/twist/twist/linear/y']"
+                }, 
+                "y_limits": {
+                  "type": "repr", 
+                  "repr": "[-2.801231488763624, 4.374752745418368]"
+                }, 
+                "x_limits": {
+                  "type": "repr", 
+                  "repr": "[160.66551091254814, 197.41330933570862]"
+                }
+              }, 
+              "groups": {}
+            }
+          }
+        }, 
+        "plugin__rqt_plot__Plot__3": {
+          "keys": {}, 
+          "groups": {
+            "dock_widget__DataPlotWidget": {
+              "keys": {
+                "dockable": {
+                  "type": "repr", 
+                  "repr": "True"
+                }, 
+                "parent": {
+                  "type": "repr", 
+                  "repr": "None"
+                }, 
+                "dock_widget_title": {
+                  "type": "repr", 
+                  "repr": "u'PyQtGraph (3)'"
+                }
+              }, 
+              "groups": {}
+            }, 
+            "plugin": {
+              "keys": {
+                "autoscroll": {
+                  "type": "repr", 
+                  "repr": "True"
+                }, 
+                "plot_type": {
+                  "type": "repr", 
+                  "repr": "0"
+                }, 
+                "topics": {
+                  "type": "repr", 
+                  "repr": "[u'/odometry/filtered/twist/twist/linear/z', u'/odometry/filtered/pose/pose/position/z', u'/camera_localized_pose/pose/covariance[14]', u'/camera_localized_pose/pose/pose/position/z']"
+                }, 
+                "y_limits": {
+                  "type": "repr", 
+                  "repr": "[-132.5467714161384, 152.2115837016362]"
+                }, 
+                "x_limits": {
+                  "type": "repr", 
+                  "repr": "[196.5761342048645, 197.5761342048645]"
+                }
+              }, 
+              "groups": {}
+            }
+          }
+        }
+      }
+    }, 
+    "mainwindow": {
+      "keys": {
+        "geometry": {
+          "type": "repr(QByteArray.hex)", 
+          "repr(QByteArray.hex)": "QtCore.QByteArray('01d9d0cb00020000000000000000001b0000077f0000043700000000000000400000077f0000043700000000000000000780')", 
+          "pretty-print": "           7   @   7     "
+        }, 
+        "state": {
+          "type": "repr(QByteArray.hex)", 
+          "repr(QByteArray.hex)": "QtCore.QByteArray('000000ff00000000fd00000002000000020000078000000122fc0100000005fb00000062007200710074005f0072006f0062006f0074005f006d006f006e00690074006f0072005f005f0052006f0062006f0074004d006f006e00690074006f0072005f005f0031005f005f0052006f0062006f00740020004d006f006e00690074006f007203000000000000006a00000780000003c1fb00000030005f005f0044006f0063006b0057006900640067006500740043006f006e007400610069006e00650072005f005f00310100000000000007800000000000000000fb0000004c007200710074005f0074006f007000690063005f005f0054006f0070006900630050006c007500670069006e005f005f0031005f005f0054006f00700069006300570069006400670065007401000000000000038e0000000000000000fb00000078007200710074005f00720075006e00740069006d0065005f006d006f006e00690074006f0072005f005f00520075006e00740069006d0065004d006f006e00690074006f0072005f005f0031005f005f00520075006e00740069006d0065004d006f006e00690074006f00720057006900640067006500740100000000000003be0000000000000000fb00000066007200710074005f006c006f0067006700650072005f006c006500760065006c005f005f004c006f0067006700650072004c006500760065006c005f005f0031005f005f004c006f0067006700650072004c006500760065006c00570069006400670065007401000003c4000003bc00000000000000000000000300000780000003cffc010000000bfb0000006c007200710074005f007200650063006f006e006600690067007500720065005f005f0050006100720061006d005f005f0031005f005f005f0070006c007500670069006e0063006f006e007400610069006e00650072005f0074006f0070005f0077006900640067006500740100000000000007800000000000000000fb00000022007200710074005f0074006f0070005f005f0054004f0050005f005f0031005f005f03000000000000007700000780000003c1fb0000005a007200710074005f0069006d006100670065005f0076006900650077005f005f0049006d0061006700650056006900650077005f005f0031005f005f0049006d00610067006500560069006500770057006900640067006500740100000000000007800000000000000000fb00000034007200710074005f006200610067005f005f004200610067005f005f0031005f005f0042006100670057006900640067006500740100000000000007800000000000000000fb00000042007200710074005f0070006c006f0074005f005f0050006c006f0074005f005f0031005f005f00440061007400610050006c006f00740057006900640067006500740100000000000002660000011300fffffffc000000000000055d0000000000fffffffc0200000002fb00000050007200710074005f0061006300740069006f006e005f005f0041006300740069006f006e0050006c007500670069006e005f005f0031005f005f006d0065007300730061006700650073002e00750069010000001b0000015d0000000000000000fb00000044007200710074005f00670072006100700068005f005f0052006f007300470072006100700068005f005f0031005f005f0052006f007300470072006100700068005500690100000143000002990000000000000000fb00000050007200710074005f006400650070005f005f0052006f0073005000610063006b00470072006100700068005f005f0031005f005f0052006f0073005000610063006b004700720061007000680055006901000004f60000028a0000000000000000fb00000058007200710074005f007000750062006c00690073006800650072005f005f005000750062006c00690073006800650072005f005f0031005f005f005000750062006c0069007300680065007200570069006400670065007401000004f60000028a0000000000000000fb0000004c007200710074005f00740066005f0074007200650065005f005f0052006f0073005400660054007200650065005f005f0031005f005f0052006f00730054006600540072006500650055006901000005630000021d0000000000000000fb00000042007200710074005f0070006c006f0074005f005f0050006c006f0074005f005f0032005f005f00440061007400610050006c006f0074005700690064006700650074010000026c000002f10000011300fffffffb00000042007200710074005f0070006c006f0074005f005f0050006c006f0074005f005f0033005f005f00440061007400610050006c006f007400570069006400670065007401000005630000021d0000011300ffffff000007800000000000000004000000040000000800000008fc00000001000000030000000100000036004d0069006e0069006d0069007a006500640044006f0063006b00570069006400670065007400730054006f006f006c0062006100720000000000ffffffff0000000000000000')", 
+          "pretty-print": "                 brqt_robot_monitor__RobotMonitor__1__Robot Monitor          0__DockWidgetContainer__1          Lrqt_topic__TopicPlugin__1__TopicWidget          xrqt_runtime_monitor__RuntimeMonitor__1__RuntimeMonitorWidget          frqt_logger_level__LoggerLevel__1__LoggerLevelWidget                   lrqt_reconfigure__Param__1___plugincontainer_top_widget          \"rqt_top__TOP__1__          Zrqt_image_view__ImageView__1__ImageViewWidget          4rqt_bag__Bag__1__BagWidget          Brqt_plot__Plot__1__DataPlotWidget            ]                                                     ]                                          C                                                                                                                                                          c                                           l                                           c                                                              "
+        }
+      }, 
+      "groups": {
+        "toolbar_areas": {
+          "keys": {
+            "MinimizedDockWidgetsToolbar": {
+              "type": "repr", 
+              "repr": "8"
+            }
+          }, 
+          "groups": {}
+        }
+      }
+    }
+  }
+}
