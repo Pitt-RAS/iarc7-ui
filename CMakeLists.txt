@@ -8,12 +8,9 @@ set(CMAKE_CXX_FLAGS "-Wall -Wextra -Werror ${CMAKE_CXX_FLAGS}")
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   iarc7_msgs
-  nav_msgs
   tf2
-  tf2_ros
   tf2_geometry_msgs
   roscpp
-  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -71,10 +68,9 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-generate_messages(
-    DEPENDENCIES
-    iarc7_msgs
-)
+# generate_messages(
+#     DEPENDENCIES
+# )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
