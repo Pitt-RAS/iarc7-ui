@@ -53,13 +53,13 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        back_left_camera_optical:
+        back_left_camera_rgb_optical:
           Value: true
-        back_right_camera_optical:
+        back_right_camera_rgb_optical:
           Value: true
         base_footprint:
           Value: true
-        bottom_camera_optical:
+        bottom_camera_rgb_optical:
           Value: true
         center_of_lift:
           Value: true
@@ -71,9 +71,9 @@ Visualization Manager:
           Value: true
         foot4:
           Value: true
-        front_left_camera_optical:
+        front_left_camera_rgb_optical:
           Value: true
-        front_right_camera_optical:
+        front_right_camera_rgb_optical:
           Value: true
         laser:
           Value: true
@@ -96,9 +96,9 @@ Visualization Manager:
         map:
           level_quad:
             quad:
-              back_left_camera_optical:
+              back_left_camera_rgb_optical:
                 {}
-              back_right_camera_optical:
+              back_right_camera_rgb_optical:
                 {}
               base_footprint:
                 foot1:
@@ -109,13 +109,13 @@ Visualization Manager:
                   {}
                 foot4:
                   {}
-              bottom_camera_optical:
+              bottom_camera_rgb_optical:
                 {}
               center_of_lift:
                 {}
-              front_left_camera_optical:
+              front_left_camera_rgb_optical:
                 {}
-              front_right_camera_optical:
+              front_right_camera_rgb_optical:
                 {}
               laser:
                 {}
@@ -127,7 +127,7 @@ Visualization Manager:
       Value: true
     - Class: rviz/Image
       Enabled: true
-      Image Topic: /bottom_camera/camera/image_raw
+      Image Topic: /bottom_camera/rgb/image_raw
       Max Value: 1
       Median window: 5
       Min Value: 0
