@@ -53,13 +53,13 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        back_left_camera_rgb_optical:
+        back_left_camera_rgb_optical_frame:
           Value: true
-        back_right_camera_rgb_optical:
+        back_right_camera_rgb_optical_frame:
           Value: true
         base_footprint:
           Value: true
-        bottom_camera_rgb_optical:
+        bottom_camera_rgb_optical_frame:
           Value: true
         center_of_lift:
           Value: true
@@ -71,9 +71,9 @@ Visualization Manager:
           Value: true
         foot4:
           Value: true
-        front_left_camera_rgb_optical:
+        front_left_camera_rgb_optical_frame:
           Value: true
-        front_right_camera_rgb_optical:
+        front_right_camera_rgb_optical_frame:
           Value: true
         laser:
           Value: true
@@ -96,9 +96,9 @@ Visualization Manager:
         map:
           level_quad:
             quad:
-              back_left_camera_rgb_optical:
+              back_left_camera_rgb_optical_frame:
                 {}
-              back_right_camera_rgb_optical:
+              back_right_camera_rgb_optical_frame:
                 {}
               base_footprint:
                 foot1:
@@ -109,13 +109,13 @@ Visualization Manager:
                   {}
                 foot4:
                   {}
-              bottom_camera_rgb_optical:
+              bottom_camera_rgb_optical_frame:
                 {}
               center_of_lift:
                 {}
-              front_left_camera_rgb_optical:
+              front_left_camera_rgb_optical_frame:
                 {}
-              front_right_camera_rgb_optical:
+              front_right_camera_rgb_optical_frame:
                 {}
               laser:
                 {}
